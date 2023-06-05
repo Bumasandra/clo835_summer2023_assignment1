@@ -2,7 +2,7 @@ name: push images to ECR
 
 on: 
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   
@@ -41,7 +41,7 @@ jobs:
     - name: Building the sql and push image to Amazon ECR
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: mydbl
+        ECR_REPOSITORY: mydb
         IMAGE_TAG: v0.1
       run: |
         cd sql_app/
